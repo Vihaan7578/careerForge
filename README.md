@@ -6,7 +6,7 @@ Basically, it's an AI-powered tool that helps you whip up professional-looking r
 
 ## ✨ What It Actually Does
 
-Okay so here's what this bad boy can do:
+Okay so here's what this website can do
 
 - **AI Content Magic**: Uses Groq AI to write your professional summary. Like, it actually sounds good—not robotic at all
 - **Bullet Point Makeover**: Takes your boring job descriptions and makes them... well, impressive. The AI has some tricks up its sleeve
@@ -100,99 +100,14 @@ Using this is pretty straightforward, honestly:
 - Lists specific strengths and improvements
 - Suggests missing details
 
-## 📱 Templates
 
-### Modern Template
-- Clean, contemporary design
-- Bold section headers
-- Perfect for tech and creative roles
-
-### Classic Template
-- Traditional, elegant layout
-- Professional and timeless
-- Great for corporate positions
-
-## 🎨 Customization
-
-The app uses Tailwind CSS, making it easy to customize:
-- Colors defined in `tailwind.config.js`
-- Custom styles in `src/index.css`
-- Component-level styling in individual files
-
-## 🔐 API Configuration
-
-The Google Gemini API key is currently hardcoded for hackathon purposes.
-For production use, move it to environment variables:
-
-1. Create `.env` file:
-```
-VITE_GEMINI_API_KEY=your_api_key_here
-```
-
-2. Update `src/utils/gemini.js`:
-```javascript
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-```
-
-## 📦 Build for Production
-
-```bash
-npm run build
-```
-
-The build files will be in the `dist/` directory.
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run: `vercel`
-3. Follow the prompts
-
-### Netlify
-1. Build the project: `npm run build`
-2. Drag the `dist/` folder to Netlify
-
-## 🏆 Hackathon Highlights
-
-### Innovation & Originality ⭐⭐⭐⭐⭐
-- AI-powered content generation
-- Smart resume scoring algorithm
-- Real-time bullet point enhancement
-
-### Design & Visual Appeal ⭐⭐⭐⭐⭐
-- Modern, intuitive interface
-- Smooth animations and transitions
-- Professional resume templates
-
-### Technical Execution ⭐⭐⭐⭐⭐
-- Clean, modular code architecture
-- Efficient state management
-- Seamless AI integration
-
-## 📝 Demo Script
-
-For presentation, use this flow:
-1. Show landing page - explain the problem
-2. Click "Get Started"
-3. Quickly fill personal info
-4. Add one work experience
-5. Click sparkle to enhance it with AI
-6. Add education and skills
-7. Click "Generate Summary"
-8. Switch between templates
-9. Click "Analyze Resume"
-10. Show the score and suggestions
-11. Download PDF
-12. Show final result
 
 ## 🤝 Contributing
-
-This project was built for Technovanza Hackathon 2025.
+  This project was built for Technovanza Hackathon 2025.
 
 ## 📄 License
 
-MIT License - Built with ❤️ for Technovanza
+MIT License
 
 ## 🙏 Acknowledgments
 
@@ -203,5 +118,5 @@ MIT License - Built with ❤️ for Technovanza
 
 ---
 
-**Built for Technovanza Hackathon 2025** 🎉
+Link to the website WOOOOOHOOOOOOO- https://career-forge-psi.vercel.app/
 
