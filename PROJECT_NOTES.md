@@ -107,7 +107,7 @@ Started as "let's build a basic resume builder" and ended up with an AI-powered,
 
 Not bad for 2 days of work and questionable amounts of caffeine.
 
-If you're reading this and wondering "should I use this for my actual resume?" - yeah, go for it. It's actually pretty solid.
+If you're reading this and wondering "should I use this for my actual resume?" - NOOOO WAYSSS HAHA
 
 ---
 
