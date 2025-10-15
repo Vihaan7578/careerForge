@@ -18,38 +18,6 @@ Had like 2 days to build it. Turned out better than expected honestly.
 
 **jsPDF + html2canvas**: For PDF generation. Getting the PDF to match the on-screen preview was... an adventure. Eventually figured out you gotta capture the actual pixel dimensions and convert to mm. Math is fun when it finally works.
 
-## The Build Process (AKA what went wrong and how I fixed it)
-
-### Day 1 - The Foundation
-- Set up React + Vite + Tailwind
-- Built the basic form flow (7 steps total)
-- Created React Context for state management (because passing props 5 levels deep is hell)
-- Realized I needed multiple templates... started with 2, ended up with 17 somehow
-
-### Day 2 - The AI Integration
-- Initially went with Gemini API
-- Gemini kept failing (404 errors for EVERY model - gemini-pro, gemini-1.5-flash, all of them)
-- Spent way too long debugging before saying "screw it" and switching to Groq
-- Groq setup took like 20 minutes. Should've started with it.
-
-### The Template Sprint
-- Started with Modern and Classic templates
-- Then got carried away and made 17 total
-- Categories: Clean & Professional, ATS Optimized, Modern & Artsy, Aesthetic, Industry Specific, Creative
-- Each template had to handle all the data (experience, education, skills, projects, certs, additional info, profile pic)
-
-### The PDF Nightmare
-- First attempt: Fixed A4 size. Looked terrible.
-- Second attempt: Dynamic height based on content. Better, but preview had `scale-90` so PDF didn't match.
-- Final fix: Capture exact pixel dimensions of preview, convert to mm. Perfect match now.
-
-### The Polish Phase
-- Added auto-capitalization for names, places, etc.
-- Created profession-based skill suggestions (250+ skills across 10 professions)
-- Built the Examples page with all 17 templates + sample data
-- Fixed hover effects on template cards (photo fades out, button fades in)
-- Added "About Me" generation instead of just professional summary
-
 ## Cool Features
 
 **AI Stuff:**
