@@ -82,7 +82,7 @@ Pretty snappy overall.
 
 ## What's NOT Included
 
-Things that would be cool but weren't needed for the hackathon:
+Things that would be cool but I couldnt add them DUE to time constraint and what not
 
 - User authentication
 - Cloud storage
@@ -98,7 +98,7 @@ Things that would be cool but weren't needed for the hackathon:
 
 Currently running locally (`npm run dev`).
 
-Could deploy to Vercel/Netlify in like 5 minutes if needed.
+deployed to vercel now too, the link is at the bottom of readme
 
 ## Code Quality
 
