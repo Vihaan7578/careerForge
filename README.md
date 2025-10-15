@@ -1,6 +1,6 @@
 # 🚀 CareerForge- LINK TO THE WEBSITE AT THE BOTTOM
 
-So... I built this resume builder thing for a hackathon (Technovanza 2025), and honestly? It turned out way cooler than I expected.
+built this resume builder for a hackathon (Technovanza 2025), and tbh It turned out way cooler than I expected.
 
 Basically, it's an AI-powered tool that helps you whip up professional-looking resumes without wanting to throw your laptop out the window. You know how tedious resume building usually is, right? Yeah. Not anymore.
 
