@@ -8,47 +8,63 @@ const ModernTemplate = ({ data }) => {
     <div className="bg-white p-8 shadow-lg" id="resume-template">
       {/* Header */}
       <div className="border-b-4 border-primary pb-4 mb-6">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">
-          {personalInfo.fullName || 'Your Name'}
-        </h1>
-        <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+        <div className="flex items-start gap-6">
+          {/* Profile Image */}
+          {personalInfo.profileImage && (
+            <div className="w-24 h-24 rounded-lg overflow-hidden border-4 border-primary flex-shrink-0 shadow-lg">
+              <img 
+                src={personalInfo.profileImage} 
+                alt={personalInfo.fullName || 'Profile'}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+          
+          {/* Name and Contact */}
+          <div className="flex-1">
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+              {personalInfo.fullName || 'Your Name'}
+            </h1>
+            <div className="flex flex-wrap gap-4 text-sm text-gray-600">
           {personalInfo.email && (
-            <span className="flex items-center gap-1">
-              <Mail className="w-4 h-4" />
-              {personalInfo.email}
+            <span className="inline-flex items-center gap-1">
+              <Mail className="w-4 h-4 flex-shrink-0" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span style={{ verticalAlign: 'middle' }}>{personalInfo.email}</span>
             </span>
           )}
           {personalInfo.phone && (
-            <span className="flex items-center gap-1">
-              <Phone className="w-4 h-4" />
-              {personalInfo.phone}
+            <span className="inline-flex items-center gap-1">
+              <Phone className="w-4 h-4 flex-shrink-0" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span style={{ verticalAlign: 'middle' }}>{personalInfo.phone}</span>
             </span>
           )}
           {personalInfo.location && (
-            <span className="flex items-center gap-1">
-              <MapPin className="w-4 h-4" />
-              {personalInfo.location}
+            <span className="inline-flex items-center gap-1">
+              <MapPin className="w-4 h-4 flex-shrink-0" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span style={{ verticalAlign: 'middle' }}>{personalInfo.location}</span>
             </span>
           )}
           {personalInfo.linkedin && (
-            <span className="flex items-center gap-1">
-              <Linkedin className="w-4 h-4" />
-              {personalInfo.linkedin}
+            <span className="inline-flex items-center gap-1">
+              <Linkedin className="w-4 h-4 flex-shrink-0" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span style={{ verticalAlign: 'middle' }}>{personalInfo.linkedin}</span>
             </span>
           )}
           {personalInfo.portfolio && (
-            <span className="flex items-center gap-1">
-              <Globe className="w-4 h-4" />
-              {personalInfo.portfolio}
+            <span className="inline-flex items-center gap-1">
+              <Globe className="w-4 h-4 flex-shrink-0" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span style={{ verticalAlign: 'middle' }}>{personalInfo.portfolio}</span>
             </span>
           )}
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Professional Summary */}
+      {/* About Me */}
       {summary && (
         <div className="mb-6">
-          <h2 className="text-xl font-bold text-primary mb-2">PROFESSIONAL SUMMARY</h2>
+          <h2 className="text-xl font-bold text-primary mb-2">ABOUT ME</h2>
           <p className="text-gray-700 leading-relaxed">{summary}</p>
         </div>
       )}

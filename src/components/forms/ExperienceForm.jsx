@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Briefcase, Plus, Trash2, Sparkles } from 'lucide-react';
 import { useResume } from '../../context/ResumeContext';
-import { improveBulletPoint } from '../../utils/gemini';
+import { improveBulletPoint } from '../../utils/ai';
+import { formatJobTitle, formatCompanyName, formatLocation } from '../../utils/textUtils';
 
 const ExperienceForm = () => {
   const { resumeData, addExperience, updateExperience, removeExperience } = useResume();
@@ -42,7 +43,14 @@ const ExperienceForm = () => {
 
   const handleSaveExperience = () => {
     if (currentExp.title && currentExp.company) {
-      addExperience(currentExp);
+      // Format before saving
+      const formattedExp = {
+        ...currentExp,
+        title: formatJobTitle(currentExp.title),
+        company: formatCompanyName(currentExp.company),
+        location: formatLocation(currentExp.location),
+      };
+      addExperience(formattedExp);
       setCurrentExp({
         title: '',
         company: '',
@@ -124,7 +132,7 @@ const ExperienceForm = () => {
               <input
                 type="text"
                 className="input-field"
-                placeholder="Software Engineer"
+                placeholder="Software Developer"
                 value={currentExp.title}
                 onChange={(e) => setCurrentExp({ ...currentExp, title: e.target.value })}
               />
@@ -135,7 +143,7 @@ const ExperienceForm = () => {
               <input
                 type="text"
                 className="input-field"
-                placeholder="Tech Corp"
+                placeholder="TCS"
                 value={currentExp.company}
                 onChange={(e) => setCurrentExp({ ...currentExp, company: e.target.value })}
               />
@@ -146,7 +154,7 @@ const ExperienceForm = () => {
               <input
                 type="text"
                 className="input-field"
-                placeholder="San Francisco, CA"
+                placeholder="Mumbai, Maharashtra"
                 value={currentExp.location}
                 onChange={(e) => setCurrentExp({ ...currentExp, location: e.target.value })}
               />
@@ -193,7 +201,7 @@ const ExperienceForm = () => {
                 <input
                   type="text"
                   className="input-field flex-1"
-                  placeholder="Led a team of 5 developers to build..."
+                  placeholder="Led a team of 5 developers to build a mobile app..."
                   value={desc}
                   onChange={(e) => handleUpdateDescription(index, e.target.value)}
                 />

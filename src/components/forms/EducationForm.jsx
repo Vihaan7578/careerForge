@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { GraduationCap, Plus, Trash2 } from 'lucide-react';
 import { useResume } from '../../context/ResumeContext';
+import { formatSchoolName, formatLocation, formatDegree } from '../../utils/textUtils';
 
 const EducationForm = () => {
   const { resumeData, addEducation, removeEducation } = useResume();
@@ -16,7 +17,15 @@ const EducationForm = () => {
 
   const handleSaveEducation = () => {
     if (currentEdu.degree && currentEdu.school) {
-      addEducation(currentEdu);
+      // Format before saving
+      const formattedEdu = {
+        ...currentEdu,
+        degree: formatDegree(currentEdu.degree),
+        school: formatSchoolName(currentEdu.school),
+        location: formatLocation(currentEdu.location),
+        field: currentEdu.field ? formatDegree(currentEdu.field) : '',
+      };
+      addEducation(formattedEdu);
       setCurrentEdu({
         degree: '',
         field: '',
@@ -49,7 +58,7 @@ const EducationForm = () => {
                 {edu.location && <p className="text-sm text-gray-500">{edu.location}</p>}
                 <p className="text-sm text-gray-500">
                   Graduated: {edu.graduationDate}
-                  {edu.gpa && ` • GPA: ${edu.gpa}`}
+                  {edu.gpa && ` • Score: ${edu.gpa}%`}
                 </p>
               </div>
               <button
@@ -83,10 +92,19 @@ const EducationForm = () => {
                 onChange={(e) => setCurrentEdu({ ...currentEdu, degree: e.target.value })}
               >
                 <option value="">Select degree</option>
-                <option value="High School Diploma">High School Diploma</option>
-                <option value="Associate's Degree">Associate's Degree</option>
-                <option value="Bachelor's Degree">Bachelor's Degree</option>
-                <option value="Master's Degree">Master's Degree</option>
+                <option value="Class 10th (SSC)">Class 10th (SSC)</option>
+                <option value="Class 12th (HSC)">Class 12th (HSC)</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Bachelor of Technology (B.Tech)">Bachelor of Technology (B.Tech)</option>
+                <option value="Bachelor of Engineering (B.E.)">Bachelor of Engineering (B.E.)</option>
+                <option value="Bachelor of Science (B.Sc)">Bachelor of Science (B.Sc)</option>
+                <option value="Bachelor of Commerce (B.Com)">Bachelor of Commerce (B.Com)</option>
+                <option value="Bachelor of Arts (B.A.)">Bachelor of Arts (B.A.)</option>
+                <option value="Bachelor of Business Administration (BBA)">Bachelor of Business Administration (BBA)</option>
+                <option value="Master of Technology (M.Tech)">Master of Technology (M.Tech)</option>
+                <option value="Master of Science (M.Sc)">Master of Science (M.Sc)</option>
+                <option value="Master of Business Administration (MBA)">Master of Business Administration (MBA)</option>
+                <option value="Master of Arts (M.A.)">Master of Arts (M.A.)</option>
                 <option value="Ph.D.">Ph.D.</option>
                 <option value="Certificate">Certificate</option>
               </select>
@@ -94,13 +112,27 @@ const EducationForm = () => {
 
             <div>
               <label className="label">Field of Study</label>
-              <input
-                type="text"
+              <select
                 className="input-field"
-                placeholder="Computer Science"
                 value={currentEdu.field}
                 onChange={(e) => setCurrentEdu({ ...currentEdu, field: e.target.value })}
-              />
+              >
+                <option value="">Select field</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Electronics & Communication">Electronics & Communication</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Chemical Engineering">Chemical Engineering</option>
+                <option value="Business Administration">Business Administration</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Arts">Arts</option>
+                <option value="Science">Science</option>
+                <option value="Medicine">Medicine</option>
+                <option value="Law">Law</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
 
             <div>
@@ -108,7 +140,7 @@ const EducationForm = () => {
               <input
                 type="text"
                 className="input-field"
-                placeholder="MIT"
+                placeholder="IIT Bombay"
                 value={currentEdu.school}
                 onChange={(e) => setCurrentEdu({ ...currentEdu, school: e.target.value })}
               />
@@ -119,7 +151,7 @@ const EducationForm = () => {
               <input
                 type="text"
                 className="input-field"
-                placeholder="Cambridge, MA"
+                placeholder="Mumbai, Maharashtra"
                 value={currentEdu.location}
                 onChange={(e) => setCurrentEdu({ ...currentEdu, location: e.target.value })}
               />
@@ -136,11 +168,14 @@ const EducationForm = () => {
             </div>
 
             <div>
-              <label className="label">GPA (Optional)</label>
+              <label className="label">Percentage/CGPA (Optional)</label>
               <input
-                type="text"
+                type="number"
                 className="input-field"
-                placeholder="3.8/4.0"
+                placeholder="85"
+                min="0"
+                max="100"
+                step="0.01"
                 value={currentEdu.gpa}
                 onChange={(e) => setCurrentEdu({ ...currentEdu, gpa: e.target.value })}
               />
@@ -173,7 +208,7 @@ const EducationForm = () => {
 
       <div className="bg-green-50 border border-green-200 rounded-lg p-4">
         <p className="text-sm text-green-800">
-          <strong>💡 Tip:</strong> Only include GPA if it's above 3.5. List education in reverse chronological order.
+          <strong>💡 Tip:</strong> Only include percentage/CGPA if it's above 70%. List education in reverse chronological order.
         </p>
       </div>
     </div>

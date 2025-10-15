@@ -8,48 +8,59 @@ const ClassicTemplate = ({ data }) => {
     <div className="bg-white p-8 shadow-lg" id="resume-template">
       {/* Header */}
       <div className="text-center border-b-2 border-gray-800 pb-4 mb-6">
+        {/* Profile Image - Centered Circle */}
+        {personalInfo.profileImage && (
+          <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-800 mx-auto mb-4 shadow-lg">
+            <img 
+              src={personalInfo.profileImage} 
+              alt={personalInfo.fullName || 'Profile'}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
+        
         <h1 className="text-4xl font-bold text-gray-900 mb-3">
           {personalInfo.fullName || 'Your Name'}
         </h1>
         <div className="flex flex-wrap justify-center gap-3 text-sm text-gray-700">
           {personalInfo.email && (
-            <span className="flex items-center gap-1">
-              <Mail className="w-3 h-3" />
-              {personalInfo.email}
+            <span className="inline-flex items-center gap-1">
+              <Mail className="w-3 h-3 flex-shrink-0" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span style={{ verticalAlign: 'middle' }}>{personalInfo.email}</span>
             </span>
           )}
           {personalInfo.phone && (
-            <span className="flex items-center gap-1">
-              <Phone className="w-3 h-3" />
-              {personalInfo.phone}
+            <span className="inline-flex items-center gap-1">
+              <Phone className="w-3 h-3 flex-shrink-0" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span style={{ verticalAlign: 'middle' }}>{personalInfo.phone}</span>
             </span>
           )}
           {personalInfo.location && (
-            <span className="flex items-center gap-1">
-              <MapPin className="w-3 h-3" />
-              {personalInfo.location}
+            <span className="inline-flex items-center gap-1">
+              <MapPin className="w-3 h-3 flex-shrink-0" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span style={{ verticalAlign: 'middle' }}>{personalInfo.location}</span>
             </span>
           )}
           {personalInfo.linkedin && (
-            <span className="flex items-center gap-1">
-              <Linkedin className="w-3 h-3" />
-              {personalInfo.linkedin}
+            <span className="inline-flex items-center gap-1">
+              <Linkedin className="w-3 h-3 flex-shrink-0" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span style={{ verticalAlign: 'middle' }}>{personalInfo.linkedin}</span>
             </span>
           )}
           {personalInfo.portfolio && (
-            <span className="flex items-center gap-1">
-              <Globe className="w-3 h-3" />
-              {personalInfo.portfolio}
+            <span className="inline-flex items-center gap-1">
+              <Globe className="w-3 h-3 flex-shrink-0" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+              <span style={{ verticalAlign: 'middle' }}>{personalInfo.portfolio}</span>
             </span>
           )}
         </div>
       </div>
 
-      {/* Professional Summary */}
+      {/* About Me */}
       {summary && (
         <div className="mb-5">
           <h2 className="text-lg font-bold text-gray-900 uppercase border-b border-gray-300 pb-1 mb-2">
-            Professional Summary
+            About Me
           </h2>
           <p className="text-gray-700 text-sm leading-relaxed">{summary}</p>
         </div>

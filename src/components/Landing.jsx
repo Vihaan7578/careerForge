@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sparkles, FileText, Zap, Download, Brain, Star } from 'lucide-react';
 
-const Landing = ({ onGetStarted }) => {
+const Landing = ({ onGetStarted, onSeeExamples }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
       {/* Navigation */}
@@ -10,7 +10,7 @@ const Landing = ({ onGetStarted }) => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Brain className="w-8 h-8 text-primary" />
-              <span className="text-2xl font-bold gradient-text">AI Resume Builder</span>
+              <span className="text-2xl font-bold gradient-text">CareerForge</span>
             </div>
             <button
               onClick={onGetStarted}
@@ -27,7 +27,7 @@ const Landing = ({ onGetStarted }) => {
         <div className="text-center fade-in">
           <div className="inline-flex items-center space-x-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-8">
             <Sparkles className="w-5 h-5" />
-            <span className="text-sm font-semibold">Powered by Advanced AI</span>
+            <span className="text-sm font-semibold">Made by BBPS, Brij Vihar</span>
           </div>
           
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6">
@@ -49,7 +49,11 @@ const Landing = ({ onGetStarted }) => {
               Build My Resume Now
               <Zap className="w-5 h-5 ml-2 inline" />
             </button>
-            <button className="btn-secondary text-lg px-8 py-4">
+            <button
+              onClick={onSeeExamples}
+              className="btn-secondary text-lg px-8 py-4"
+            >
+              <FileText className="w-5 h-5 mr-2 inline" />
               See Examples
             </button>
           </div>
@@ -75,7 +79,7 @@ const Landing = ({ onGetStarted }) => {
       {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <h2 className="text-4xl font-bold text-center mb-16">
-          Why Choose Our AI Resume Builder?
+          Why Choose CareerForge?
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -211,9 +215,26 @@ const Landing = ({ onGetStarted }) => {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Brain className="w-6 h-6" />
-            <span className="text-xl font-bold">AI Resume Builder</span>
+            <span className="text-xl font-bold">CareerForge</span>
+          </div>
+          <div className="mb-4">
+            <p className="text-lg font-semibold text-white mb-2">Created by</p>
+            <div className="flex items-center justify-center space-x-4">
+              <div className="text-center">
+                <p className="font-bold text-primary">Vihaan Pandey</p>
+                <p className="text-sm text-gray-400">Developer</p>
+              </div>
+              <div className="w-px h-8 bg-gray-600"></div>
+              <div className="text-center">
+                <p className="font-bold text-secondary">Aditi Chopra</p>
+                <p className="text-sm text-gray-400">Designer</p>
+              </div>
+            </div>
           </div>
           <p className="text-gray-400">
+            Made under the guidance of <span className="font-semibold text-white">Mrs. Gunjan Khanna</span>
+          </p>
+          <p className="text-sm text-gray-500 mt-2">
             Built with ❤️ for Technovanza Hackathon 2025
           </p>
         </div>
